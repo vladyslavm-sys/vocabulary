@@ -21,11 +21,7 @@
       --font-sans: 'Source Sans 3', 'Segoe UI', Tahoma, sans-serif;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: var(--font-sans);
@@ -44,40 +40,27 @@
       padding: 0;
       box-shadow: 0 2px 12px rgba(0,0,0,.15);
     }
-
     .header-top {
       max-width: 900px;
       margin: 0 auto;
       padding: 28px 24px 12px;
       text-align: center;
     }
-
     .header-top h1 {
       font-family: var(--font-serif);
       font-size: 1.75rem;
       font-weight: 700;
       letter-spacing: .02em;
     }
+    .header-top h1 span { color: #f5c842; }
+    .header-top p { margin-top: 4px; font-size: .95rem; opacity: .8; }
 
-    .header-top h1 span {
-      color: #f5c842;
-    }
-
-    .header-top p {
-      margin-top: 4px;
-      font-size: .95rem;
-      opacity: .8;
-    }
-
-    /* Search bar */
     .search-bar {
       max-width: 620px;
       margin: 18px auto 0;
       padding: 0 24px 24px;
       display: flex;
-      gap: 0;
     }
-
     .search-bar input {
       flex: 1;
       padding: 12px 18px;
@@ -88,11 +71,7 @@
       font-family: var(--font-sans);
       transition: border-color .2s;
     }
-
-    .search-bar input:focus {
-      border-color: #f5c842;
-    }
-
+    .search-bar input:focus { border-color: #f5c842; }
     .search-bar button {
       padding: 12px 24px;
       background: #f5c842;
@@ -105,19 +84,15 @@
       font-family: var(--font-sans);
       transition: background .2s;
     }
+    .search-bar button:hover { background: #e6b830; }
 
-    .search-bar button:hover {
-      background: #e6b830;
-    }
-
-    /* ===== Navigation ===== */
+    /* ===== Alphabet Nav ===== */
     .alphabet-nav {
       background: #fff;
       border-bottom: 1px solid var(--color-border);
       padding: 10px 24px;
       text-align: center;
     }
-
     .alphabet-nav span {
       display: inline-block;
       padding: 4px 7px;
@@ -129,7 +104,6 @@
       border-radius: 4px;
       transition: background .15s, color .15s;
     }
-
     .alphabet-nav span:hover,
     .alphabet-nav span.active {
       background: var(--color-primary);
@@ -145,7 +119,7 @@
       padding: 36px 24px 60px;
     }
 
-    /* Dictionary entry card */
+    /* Entry card */
     .entry-card {
       background: var(--color-surface);
       border-radius: 12px;
@@ -154,18 +128,16 @@
       padding: 32px 36px;
       position: relative;
       overflow: hidden;
+      margin-bottom: 20px;
     }
-
     .entry-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0;
-      width: 5px;
-      height: 100%;
+      width: 5px; height: 100%;
       background: var(--color-accent);
       border-radius: 12px 0 0 12px;
     }
-
     .entry-header {
       display: flex;
       align-items: baseline;
@@ -173,27 +145,23 @@
       flex-wrap: wrap;
       margin-bottom: 6px;
     }
-
     .headword {
       font-family: var(--font-serif);
       font-size: 2.2rem;
       font-weight: 700;
       color: var(--color-primary);
     }
-
     .part-of-speech {
       font-style: italic;
       color: var(--color-muted);
       font-size: 1rem;
     }
-
     .pronunciation {
       font-size: .95rem;
       color: var(--color-muted);
       margin-bottom: 18px;
       padding-left: 2px;
     }
-
     .pronunciation span {
       background: var(--color-highlight);
       padding: 2px 10px;
@@ -201,18 +169,12 @@
       font-family: var(--font-serif);
       letter-spacing: .04em;
     }
-
     .divider {
       border: none;
       border-top: 1px solid var(--color-border);
       margin: 16px 0;
     }
-
-    /* Definition list */
-    .definition-block {
-      margin-bottom: 20px;
-    }
-
+    .definition-block { margin-bottom: 20px; }
     .definition-block h3 {
       font-size: .8rem;
       text-transform: uppercase;
@@ -221,12 +183,10 @@
       margin-bottom: 10px;
       font-weight: 700;
     }
-
     .definition-list {
       list-style: none;
       counter-reset: def;
     }
-
     .definition-list li {
       counter-increment: def;
       padding: 8px 0 8px 32px;
@@ -234,7 +194,6 @@
       font-size: 1.05rem;
       line-height: 1.7;
     }
-
     .definition-list li::before {
       content: counter(def) ".";
       position: absolute;
@@ -242,7 +201,6 @@
       font-weight: 700;
       color: var(--color-primary);
     }
-
     .definition-list li .example {
       display: block;
       margin-top: 4px;
@@ -250,37 +208,27 @@
       color: var(--color-muted);
       font-size: .95rem;
     }
-
     .definition-highlight {
       background: var(--color-highlight);
       padding: 2px 6px;
       border-radius: 4px;
       font-weight: 700;
     }
-
-    /* Synonyms / see-also */
     .see-also {
       margin-top: 18px;
       font-size: .92rem;
       color: var(--color-muted);
     }
-
-    .see-also strong {
-      color: var(--color-text);
-    }
-
+    .see-also strong { color: var(--color-text); }
     .see-also a {
       color: var(--color-primary);
       text-decoration: none;
       border-bottom: 1px dashed var(--color-primary);
+      cursor: pointer;
       transition: border-color .2s;
     }
+    .see-also a:hover { border-bottom-style: solid; }
 
-    .see-also a:hover {
-      border-bottom-style: solid;
-    }
-
-    /* Word of the day badge */
     .badge {
       display: inline-block;
       background: var(--color-accent);
@@ -293,6 +241,76 @@
       border-radius: 20px;
       margin-bottom: 12px;
     }
+    .badge.api-badge {
+      background: #2980b9;
+    }
+
+    /* Loading & Error states */
+    .loading {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--color-muted);
+      font-size: 1.1rem;
+    }
+    .loading .spinner {
+      display: inline-block;
+      width: 36px; height: 36px;
+      border: 4px solid var(--color-border);
+      border-top-color: var(--color-primary);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin-bottom: 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .error-msg {
+      text-align: center;
+      padding: 48px 20px;
+      color: var(--color-muted);
+    }
+    .error-msg .emoji { font-size: 2.5rem; margin-bottom: 12px; }
+    .error-msg p { font-size: 1.05rem; }
+    .error-msg .suggestion {
+      margin-top: 12px;
+      font-size: .9rem;
+    }
+
+    /* Word list (for alphabet browsing) */
+    .word-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 8px 0;
+    }
+    .word-list a {
+      display: inline-block;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: 6px 16px;
+      border-radius: 8px;
+      color: var(--color-primary);
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .word-list a:hover {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+
+    /* Source label */
+    .source-label {
+      margin-top: 16px;
+      font-size: .78rem;
+      color: var(--color-muted);
+      text-align: right;
+    }
+    .source-label a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
 
     /* ===== Footer ===== */
     footer {
@@ -302,10 +320,7 @@
       padding: 20px 24px;
       font-size: .85rem;
     }
-
-    footer strong {
-      color: #f5c842;
-    }
+    footer strong { color: #f5c842; }
 
     /* ===== Responsive ===== */
     @media (max-width: 600px) {
@@ -318,20 +333,18 @@
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <div class="header-top">
       <h1>📖 Тлумачний словник <span>української мови</span></h1>
-      <p>Зрозумій значення кожного слова</p>
+      <p>Зрозумій значення кожного слова · Дані з Вікісловника</p>
     </div>
     <div class="search-bar">
-      <input type="text" placeholder="Введіть слово для пошуку…" value="Безпека" />
-      <button>Знайти</button>
+      <input id="searchInput" type="text" placeholder="Введіть слово для пошуку…" value="Безпека" />
+      <button id="searchBtn">Знайти</button>
     </div>
   </header>
 
-  <!-- Alphabet navigation -->
-  <nav class="alphabet-nav">
+  <nav class="alphabet-nav" id="alphabetNav">
     <span>А</span><span class="active">Б</span><span>В</span><span>Г</span><span>Ґ</span>
     <span>Д</span><span>Е</span><span>Є</span><span>Ж</span><span>З</span>
     <span>И</span><span>І</span><span>Ї</span><span>Й</span><span>К</span>
@@ -341,60 +354,315 @@
     <span>Ь</span><span>Ю</span><span>Я</span>
   </nav>
 
-  <!-- Main content -->
-  <main>
-    <article class="entry-card">
-
-      <div class="badge">🔍 Результат пошуку</div>
-
-      <div class="entry-header">
-        <span class="headword">Безпека</span>
-        <span class="part-of-speech">іменник, жіночий рід</span>
-      </div>
-
-      <div class="pronunciation">
-        Вимова: <span>[безˈпɛка]</span>
-      </div>
-
-      <hr class="divider">
-
-      <!-- Definition -->
-      <div class="definition-block">
-        <h3>Значення</h3>
-        <ol class="definition-list">
-          <li>
-            <span class="definition-highlight">Владік</span>
-            <span class="example">«Безпека — це Владік».</span>
-          </li>
-        </ol>
-      </div>
-
-      <hr class="divider">
-
-      <!-- Additional info -->
-      <div class="see-also">
-        <strong>Синоніми:</strong>
-        <a href="#">захищеність</a>,
-        <a href="#">надійність</a>,
-        <a href="#">впевненість</a>,
-        <a href="#">Владік</a>
-      </div>
-
-      <div class="see-also" style="margin-top:8px;">
-        <strong>Див. також:</strong>
-        <a href="#">безпечний</a>,
-        <a href="#">убезпечити</a>,
-        <a href="#">захист</a>
-      </div>
-
-    </article>
+  <main id="results">
+    <!-- Контент генерується JavaScript -->
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2026 <strong>Тлумачний словник української мови</strong> · Усі права захищені</p>
+    <p>© 2026 <strong>Тлумачний словник української мови</strong> · Дані: <a href="https://uk.wiktionary.org" target="_blank" style="color:#f5c842">Вікісловник</a></p>
   </footer>
+
+<script>
+(function () {
+  const API = 'https://uk.wiktionary.org/w/api.php';
+  const resultsEl = document.getElementById('results');
+  const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.getElementById('searchBtn');
+  const alphabetNav = document.getElementById('alphabetNav');
+
+  /* ============================================================
+     Кастомні визначення — «Безпека» завжди показує «Владік»
+     ============================================================ */
+  const CUSTOM_WORDS = {
+    'безпека': {
+      word: 'Безпека',
+      pos: 'іменник, жіночий рід',
+      pronunciation: '[безˈпɛка]',
+      definitions: ['<span class="definition-highlight">Владік</span><span class="example">«Безпека — це Владік».</span>'],
+      synonyms: ['захищеність', 'надійність', 'впевненість', 'Владік'],
+      seeAlso: ['безпечний', 'убезпечити', 'захист'],
+      isCustom: true
+    }
+  };
+
+  /* ============================================================
+     Пошук слова
+     ============================================================ */
+  function doSearch() {
+    const q = searchInput.value.trim();
+    if (!q) return;
+    updateActiveLetterFromWord(q);
+    lookupWord(q);
+  }
+
+  searchBtn.addEventListener('click', doSearch);
+  searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+
+  /* ============================================================
+     Алфавітна навігація
+     ============================================================ */
+  alphabetNav.addEventListener('click', e => {
+    if (e.target.tagName !== 'SPAN') return;
+    const letter = e.target.textContent.trim();
+    setActiveLetter(letter);
+    browseByLetter(letter);
+  });
+
+  function setActiveLetter(letter) {
+    alphabetNav.querySelectorAll('span').forEach(s => {
+      s.classList.toggle('active', s.textContent.trim() === letter);
+    });
+  }
+
+  function updateActiveLetterFromWord(word) {
+    const first = word.charAt(0).toUpperCase();
+    setActiveLetter(first);
+  }
+
+  /* ============================================================
+     Показати завантаження
+     ============================================================ */
+  function showLoading(text) {
+    resultsEl.innerHTML = `
+      <div class="loading">
+        <div class="spinner"></div>
+        <p>${text || 'Шукаю…'}</p>
+      </div>`;
+  }
+
+  function showError(emoji, title, suggestion) {
+    resultsEl.innerHTML = `
+      <div class="error-msg">
+        <div class="emoji">${emoji}</div>
+        <p><strong>${title}</strong></p>
+        ${suggestion ? `<p class="suggestion">${suggestion}</p>` : ''}
+      </div>`;
+  }
+
+  /* ============================================================
+     Пошук слова через Wiktionary API
+     ============================================================ */
+  async function lookupWord(word) {
+    const key = word.toLowerCase();
+
+    // Спочатку перевіряємо кастомні слова
+    if (CUSTOM_WORDS[key]) {
+      renderEntry(CUSTOM_WORDS[key]);
+      return;
+    }
+
+    showLoading(`Шукаю «${word}»…`);
+
+    try {
+      // Отримуємо вміст сторінки з Вікісловника
+      const url = `${API}?action=parse&page=${encodeURIComponent(word.toLowerCase())}&prop=wikitext&format=json&origin=*`;
+      const resp = await fetch(url);
+      const data = await resp.json();
+
+      if (data.error) {
+        showError('🔍', `Слово «${word}» не знайдено`, 'Спробуйте інше слово або перевірте правопис');
+        return;
+      }
+
+      const wikitext = data.parse.wikitext['*'];
+      const parsed = parseWikitext(word, wikitext);
+
+      if (parsed.definitions.length === 0) {
+        showError('📄', `Для слова «${word}» не знайдено визначень`, 'Сторінка існує, але визначення не вдалося розпарсити');
+        return;
+      }
+
+      renderEntry(parsed);
+
+    } catch (err) {
+      showError('⚠️', 'Помилка зʼєднання', 'Перевірте інтернет-зʼєднання та спробуйте ще раз');
+    }
+  }
+
+  /* ============================================================
+     Парсинг вікітексту (базовий)
+     ============================================================ */
+  function parseWikitext(word, wikitext) {
+    const definitions = [];
+    const synonyms = [];
+    let pos = '';
+
+    // Шукаємо частину мови
+    const posMatch = wikitext.match(/===\s*(Іменник|Дієслово|Прикметник|Прислівник|Займенник|Числівник|Прийменник|Сполучник|Частка|Вигук)\s*===/i);
+    if (posMatch) pos = posMatch[1].toLowerCase();
+
+    // Шукаємо визначення (рядки що починаються з # але не #: і не #*)
+    const lines = wikitext.split('\n');
+    let inUkSection = false;
+    let inMeaning = false;
+
+    for (const line of lines) {
+      // Відстежуємо секцію української мови
+      if (/^==\s*(Українська|uk)\s*==/i.test(line)) inUkSection = true;
+      else if (/^==\s*[^=]/.test(line) && inUkSection && !/Українська|uk/i.test(line)) inUkSection = false;
+
+      // Значення — рядки з #
+      if (/^#[^#*:]/.test(line) || /^#\s/.test(line)) {
+        let def = line.replace(/^#\s*/, '');
+        def = cleanWikiMarkup(def);
+        if (def.trim().length > 2) {
+          definitions.push(def.trim());
+        }
+      }
+
+      // Синоніми
+      if (/синонім/i.test(line)) {
+        const syns = line.match(/\[\[([^\]|]+)/g);
+        if (syns) {
+          syns.forEach(s => {
+            const clean = s.replace('[[', '').trim();
+            if (clean && !synonyms.includes(clean)) synonyms.push(clean);
+          });
+        }
+      }
+    }
+
+    return {
+      word: word.charAt(0).toUpperCase() + word.slice(1),
+      pos: pos || '',
+      pronunciation: '',
+      definitions: definitions.slice(0, 8),
+      synonyms: synonyms.slice(0, 6),
+      seeAlso: [],
+      isCustom: false,
+      wikiLink: `https://uk.wiktionary.org/wiki/${encodeURIComponent(word.toLowerCase())}`
+    };
+  }
+
+  function cleanWikiMarkup(text) {
+    return text
+      .replace(/\{\{[^}]*\}\}/g, '')           // {{шаблони}}
+      .replace(/\[\[([^|\]]*\|)?([^\]]*)\]\]/g, '$2')  // [[посилання|текст]] → текст
+      .replace(/'{2,3}/g, '')                   // '''bold''' / ''italic''
+      .replace(/<ref[^>]*>.*?<\/ref>/gs, '')    // <ref>...</ref>
+      .replace(/<ref[^/]*\/>/g, '')             // <ref ... />
+      .replace(/<[^>]+>/g, '')                  // HTML теги
+      .replace(/\s{2,}/g, ' ')
+      .trim();
+  }
+
+  /* ============================================================
+     Рендеринг картки слова
+     ============================================================ */
+  function renderEntry(entry) {
+    const badgeHTML = entry.isCustom
+      ? '<div class="badge">⭐ Спеціальне визначення</div>'
+      : '<div class="badge api-badge">📡 Вікісловник</div>';
+
+    const posHTML = entry.pos ? `<span class="part-of-speech">${entry.pos}</span>` : '';
+
+    const pronHTML = entry.pronunciation
+      ? `<div class="pronunciation">Вимова: <span>${entry.pronunciation}</span></div>`
+      : '';
+
+    const defsHTML = entry.definitions.map(d =>
+      `<li>${d}</li>`
+    ).join('');
+
+    const synsHTML = entry.synonyms.length > 0
+      ? `<div class="see-also"><strong>Синоніми:</strong> ${entry.synonyms.map(s =>
+          `<a onclick="searchWord('${s.replace(/'/g, "\\'")}')">${s}</a>`
+        ).join(', ')}</div>`
+      : '';
+
+    const seeAlsoHTML = entry.seeAlso.length > 0
+      ? `<div class="see-also" style="margin-top:8px;"><strong>Див. також:</strong> ${entry.seeAlso.map(s =>
+          `<a onclick="searchWord('${s.replace(/'/g, "\\'")}')">${s}</a>`
+        ).join(', ')}</div>`
+      : '';
+
+    const sourceHTML = !entry.isCustom && entry.wikiLink
+      ? `<div class="source-label">Джерело: <a href="${entry.wikiLink}" target="_blank">Вікісловник ↗</a></div>`
+      : '';
+
+    resultsEl.innerHTML = `
+      <article class="entry-card">
+        ${badgeHTML}
+        <div class="entry-header">
+          <span class="headword">${entry.word}</span>
+          ${posHTML}
+        </div>
+        ${pronHTML}
+        <hr class="divider">
+        <div class="definition-block">
+          <h3>Значення</h3>
+          <ol class="definition-list">${defsHTML}</ol>
+        </div>
+        ${(synsHTML || seeAlsoHTML) ? '<hr class="divider">' : ''}
+        ${synsHTML}
+        ${seeAlsoHTML}
+        ${sourceHTML}
+      </article>`;
+  }
+
+  /* ============================================================
+     Перегляд слів за літерою (Wiktionary allpages)
+     ============================================================ */
+  async function browseByLetter(letter) {
+    showLoading(`Завантажую слова на «${letter}»…`);
+
+    try {
+      const url = `${API}?action=query&list=allpages&apprefix=${encodeURIComponent(letter.toLowerCase())}&aplimit=30&apnamespace=0&apfilterredir=nonredirects&format=json&origin=*`;
+      const resp = await fetch(url);
+      const data = await resp.json();
+
+      const pages = (data.query && data.query.allpages) || [];
+      if (pages.length === 0) {
+        showError('📂', `Слів на «${letter}» не знайдено`, '');
+        return;
+      }
+
+      // Фільтруємо — тільки слова кирилицею без спецсимволів
+      const words = pages
+        .map(p => p.title)
+        .filter(t => /^[а-яґєіїёА-ЯҐЄІЇЁ'-]+$/i.test(t));
+
+      if (words.length === 0) {
+        showError('📂', `Слів на «${letter}» не знайдено`, '');
+        return;
+      }
+
+      resultsEl.innerHTML = `
+        <article class="entry-card">
+          <div class="badge api-badge">📡 Вікісловник</div>
+          <div class="entry-header">
+            <span class="headword">${letter}</span>
+            <span class="part-of-speech">знайдено ${words.length} слів</span>
+          </div>
+          <hr class="divider">
+          <div class="word-list">
+            ${words.map(w => `<a onclick="searchWord('${w.replace(/'/g, "\\'")}')">${w}</a>`).join('')}
+          </div>
+          <div class="source-label">Джерело: <a href="https://uk.wiktionary.org" target="_blank">Вікісловник ↗</a></div>
+        </article>`;
+
+    } catch (err) {
+      showError('⚠️', 'Помилка зʼєднання', 'Перевірте інтернет та спробуйте ще');
+    }
+  }
+
+  /* ============================================================
+     Глобальна функція для кліків по посиланнях
+     ============================================================ */
+  window.searchWord = function (word) {
+    searchInput.value = word;
+    updateActiveLetterFromWord(word);
+    lookupWord(word);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  /* ============================================================
+     Старт — показуємо «Безпека» при завантаженні
+     ============================================================ */
+  lookupWord('Безпека');
+
+})();
+</script>
 
 </body>
 </html>
-
