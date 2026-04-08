@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тлумачний словник української мови</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #faf8f5;
+      --color-surface: #ffffff;
+      --color-primary: #1a3c5e;
+      --color-accent: #c0392b;
+      --color-text: #2c2c2c;
+      --color-muted: #6b7280;
+      --color-border: #e5e1db;
+      --color-highlight: #fef3c7;
+      --font-serif: 'Merriweather', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Source Sans 3', 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== Header ===== */
+    header {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #2a5a8e 100%);
+      color: #fff;
+      padding: 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+
+    .header-top {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px 24px 12px;
+      text-align: center;
+    }
+
+    .header-top h1 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .header-top h1 span {
+      color: #f5c842;
+    }
+
+    .header-top p {
+      margin-top: 4px;
+      font-size: .95rem;
+      opacity: .8;
+    }
+
+    /* Search bar */
+    .search-bar {
+      max-width: 620px;
+      margin: 18px auto 0;
+      padding: 0 24px 24px;
+      display: flex;
+      gap: 0;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 12px 18px;
+      font-size: 1rem;
+      border: 2px solid transparent;
+      border-radius: 8px 0 0 8px;
+      outline: none;
+      font-family: var(--font-sans);
+      transition: border-color .2s;
+    }
+
+    .search-bar input:focus {
+      border-color: #f5c842;
+    }
+
+    .search-bar button {
+      padding: 12px 24px;
+      background: #f5c842;
+      color: var(--color-primary);
+      border: none;
+      border-radius: 0 8px 8px 0;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: background .2s;
+    }
+
+    .search-bar button:hover {
+      background: #e6b830;
+    }
+
+    /* ===== Navigation ===== */
+    .alphabet-nav {
+      background: #fff;
+      border-bottom: 1px solid var(--color-border);
+      padding: 10px 24px;
+      text-align: center;
+    }
+
+    .alphabet-nav span {
+      display: inline-block;
+      padding: 4px 7px;
+      margin: 2px;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background .15s, color .15s;
+    }
+
+    .alphabet-nav span:hover,
+    .alphabet-nav span.active {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    /* ===== Main ===== */
+    main {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 36px 24px 60px;
+    }
+
+    /* Dictionary entry card */
+    .entry-card {
+      background: var(--color-surface);
+      border-radius: 12px;
+      box-shadow: 0 1px 6px rgba(0,0,0,.06);
+      border: 1px solid var(--color-border);
+      padding: 32px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .entry-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--color-accent);
+      border-radius: 12px 0 0 12px;
+    }
+
+    .entry-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .headword {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .part-of-speech {
+      font-style: italic;
+      color: var(--color-muted);
+      font-size: 1rem;
+    }
+
+    .pronunciation {
+      font-size: .95rem;
+      color: var(--color-muted);
+      margin-bottom: 18px;
+      padding-left: 2px;
+    }
+
+    .pronunciation span {
+      background: var(--color-highlight);
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-family: var(--font-serif);
+      letter-spacing: .04em;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--color-border);
+      margin: 16px 0;
+    }
+
+    /* Definition list */
+    .definition-block {
+      margin-bottom: 20px;
+    }
+
+    .definition-block h3 {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--color-accent);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .definition-list {
+      list-style: none;
+      counter-reset: def;
+    }
+
+    .definition-list li {
+      counter-increment: def;
+      padding: 8px 0 8px 32px;
+      position: relative;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .definition-list li::before {
+      content: counter(def) ".";
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .definition-list li .example {
+      display: block;
+      margin-top: 4px;
+      font-style: italic;
+      color: var(--color-muted);
+      font-size: .95rem;
+    }
+
+    .definition-highlight {
+      background: var(--color-highlight);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* Synonyms / see-also */
+    .see-also {
+      margin-top: 18px;
+      font-size: .92rem;
+      color: var(--color-muted);
+    }
+
+    .see-also strong {
+      color: var(--color-text);
+    }
+
+    .see-also a {
+      color: var(--color-primary);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--color-primary);
+      transition: border-color .2s;
+    }
+
+    .see-also a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* Word of the day badge */
+    .badge {
+      display: inline-block;
+      background: var(--color-accent);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: var(--color-primary);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 20px 24px;
+      font-size: .85rem;
+    }
+
+    footer strong {
+      color: #f5c842;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 600px) {
+      .header-top h1 { font-size: 1.3rem; }
+      .headword { font-size: 1.7rem; }
+      .entry-card { padding: 24px 20px; }
+      .alphabet-nav span { padding: 3px 5px; font-size: .75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <h1>📖 Тлумачний словник <span>української мови</span></h1>
+      <p>Зрозумій значення кожного слова</p>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Введіть слово для пошуку…" value="Безпека" />
+      <button>Знайти</button>
+    </div>
+  </header>
+
+  <!-- Alphabet navigation -->
+  <nav class="alphabet-nav">
+    <span>А</span><span class="active">Б</span><span>В</span><span>Г</span><span>Ґ</span>
+    <span>Д</span><span>Е</span><span>Є</span><span>Ж</span><span>З</span>
+    <span>И</span><span>І</span><span>Ї</span><span>Й</span><span>К</span>
+    <span>Л</span><span>М</span><span>Н</span><span>О</span><span>П</span>
+    <span>Р</span><span>С</span><span>Т</span><span>У</span><span>Ф</span>
+    <span>Х</span><span>Ц</span><span>Ч</span><span>Ш</span><span>Щ</span>
+    <span>Ь</span><span>Ю</span><span>Я</span>
+  </nav>
+
+  <!-- Main content -->
+  <main>
+    <article class="entry-card">
+
+      <div class="badge">🔍 Результат пошуку</div>
+
+      <div class="entry-header">
+        <span class="headword">Безпека</span>
+        <span class="part-of-speech">іменник, жіночий рід</span>
+      </div>
+
+      <div class="pronunciation">
+        Вимова: <span>[безˈпɛка]</span>
+      </div>
+
+      <hr class="divider">
+
+      <!-- Definition -->
+      <div class="definition-block">
+        <h3>Значення</h3>
+        <ol class="definition-list">
+          <li>
+            <span class="definition-highlight">Владік</span>
+            <span class="example">«Безпека — це Владік».</span>
+          </li>
+        </ol>
+      </div>
+
+      <hr class="divider">
+
+      <!-- Additional info -->
+      <div class="see-also">
+        <strong>Синоніми:</strong>
+        <a href="#">захищеність</a>,
+        <a href="#">надійність</a>,
+        <a href="#">впевненість</a>,
+        <a href="#">Владік</a>
+      </div>
+
+      <div class="see-also" style="margin-top:8px;">
+        <strong>Див. також:</strong>
+        <a href="#">безпечний</a>,
+        <a href="#">убезпечити</a>,
+        <a href="#">захист</a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 <strong>Тлумачний словник української мови</strong> · Усі права захищені</p>
+  </footer>
+
+</body>
+</html>
+
